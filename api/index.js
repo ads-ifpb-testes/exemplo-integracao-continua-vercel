@@ -1,16 +1,28 @@
-const app = require("express")();
-const uuid = require("uuid");
+import express from "express";
+const app = express();
+import { v4 } from "uuid";
+import seriesRepository from "../src/series/series.repository";
+
+seriesRepository.adicionar({
+  titulo: "Orange is the New Black",
+  ano: 2012,
+  genero: ["Drama"],
+});
+seriesRepository.adicionar({
+  titulo: "Dark",
+  ano: 2017,
+  genero: ["Ficção"],
+});
+seriesRepository.adicionar({
+  titulo: "Succession",
+  ano: 2018,
+  genero: ["Drama"],
+});
 
 app.get("/api", (req, res) => {
-  const path = `/api/item/${uuid.v4()}`;
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
-  res.end(`Hello! Go to item: <a href="${path}">${path}</a>`);
+  res.json(seriesRepository.listar());
 });
 
-app.get("/api/item/:slug", (req, res) => {
-  const { slug } = req.params;
-  res.end(`Item: ${slug}`);
-});
-
-module.exports = app;
+export default app;

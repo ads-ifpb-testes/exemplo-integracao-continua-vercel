@@ -1,6 +1,7 @@
 {
   "name": "exemplo-integracao-continua-vercel",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,6 +20,8 @@
     "@babel/preset-env": "^7.21.4",
     "@types/jest": "^29.5.0",
     "babel-jest": "^29.5.0",
-    "jest": "^29.5.0"
+    "jest": "^29.5.0",
+    "webpack": "^5.81.0",
+    "webpack-cli": "^5.0.2"
   }
 }
