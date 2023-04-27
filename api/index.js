@@ -1,7 +1,7 @@
 import express from "express";
 const app = express();
 import { v4 } from "uuid";
-import seriesRepository from "../src/series/series.repository";
+import seriesRepository from "../src/series/series.repository.js";
 
 seriesRepository.adicionar({
   titulo: "Orange is the New Black",
